@@ -9,23 +9,15 @@ Esta práctica tiene como objetivo demostrar:
 - Uso de la librería Ratchet para aplicaciones en tiempo real
 - Comunicación bidireccional cliente-servidor
 - Manejo de conexiones persistentes
-- Desarrollo de interfaces interactivas con JavaScript vanilla
 
 ## 🚀 Características Implementadas
 
 - **Chat en tiempo real** con WebSockets
-- **Lista de usuarios conectados** en tiempo real
-- **Indicador "escribiendo..."** que muestra cuando otros usuarios están tecleando
-- **Notificaciones** de entrada y salida de usuarios
-- **Interfaz responsive** y moderna
-- **Reconexión automática** si se pierde la conexión
-- **Timestamps** en todos los mensajes
 
 ## 🛠️ Tecnologías Utilizadas
 
 - **PHP 7.4+** - Lenguaje del lado del servidor
 - **Ratchet** - Librería WebSocket para PHP
-- **JavaScript (Vanilla)** - Cliente WebSocket (sin frameworks)
 - **HTML5 & CSS3** - Interfaz de usuario
 - **XAMPP** - Entorno de desarrollo local
 - **Composer** - Gestor de dependencias PHP
@@ -61,11 +53,6 @@ Abre una nueva terminal/CMD y ejecuta:
 php server.php
 ```
 
-Deberías ver el mensaje:
-```
-Servidor de chat ejecutándose en el puerto 8080...
-```
-
 **⚠️ IMPORTANTE:** Mantén esta terminal abierta mientras uses el chat.
 
 ### 5. Acceder al Chat
@@ -83,16 +70,12 @@ RatchetChatPractice/
 ├── README.md              # Este archivo
 ├── public/
 │   ├── index.html         # Interfaz principal del chat
-│   └── client.js          # Cliente JavaScript WebSocket
 └── vendor/                # Dependencias de Composer (se genera automáticamente)
 ```
 
 ## 🎯 Uso del Sistema
 
-1. **Conectar al chat**: Ingresa tu nombre de usuario y haz clic en "Entrar al Chat"
-2. **Enviar mensajes**: Escribe en el campo de texto y presiona Enter o haz clic en "Enviar"
-3. **Ver usuarios conectados**: La lista de usuarios activos se muestra en la parte superior
-4. **Indicador de escritura**: Verás cuando otros usuarios estén escribiendo
+1. **Enviar mensajes**: Escribe en el campo de texto y presiona Enter o haz clic en "Enviar"
 
 ## 🐛 Solución de Problemas Comunes
 
@@ -119,13 +102,4 @@ taskkill /PID [PID] /F
 - Broadcast de mensajes a múltiples clientes
 - Gestión de estado de usuarios conectados
 
-### Frontend (JavaScript)
-- Conexión WebSocket desde el navegador
-- Manejo de eventos en tiempo real
-- Manipulación del DOM dinámica
-- Reconexión automática
-- Indicadores de estado de la aplicación
-
----
-
-**Desarrollado como práctica de WebSockets con PHP y Ratchet** 🎓⚡
+**Desarrollado como práctica de WebSockets con PHP y Ratchet**
