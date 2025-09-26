@@ -1,0 +1,20 @@
+{
+    "name": "ratchetchatpractice/ratchetchatpractice",
+    "type": "project",
+    "require": {
+        "cboden/ratchet": "^0.4.4"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Root\\App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nokx1z",
+            "email": "enyelldev@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
