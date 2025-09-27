@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/ChatHandler.php';
 
-// Inicia el servidor usando la clase modular
 $server = \Ratchet\Server\IoServer::factory(
     new \Ratchet\Http\HttpServer(
         new \Ratchet\WebSocket\WsServer(
@@ -11,6 +10,5 @@ $server = \Ratchet\Server\IoServer::factory(
     ),
     8081
 );
-
 $server->run();
 ?>

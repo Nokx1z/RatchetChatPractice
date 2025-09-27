@@ -6,8 +6,8 @@ require_once dirname(__DIR__, 2) . '/config/database.php';
 
 class ChatHandler implements MessageComponentInterface {
     protected $clients;
-    protected $users; // resourceId => username
-    protected $pdo; // Conexión DB
+    protected $users; 
+    protected $pdo; 
 
     public function __construct() {
         $this->clients = new \SplObjectStorage;
@@ -18,7 +18,7 @@ class ChatHandler implements MessageComponentInterface {
 
     public function onOpen(ConnectionInterface $conn) {
         $this->clients->attach($conn);
-        $this->users[$conn->resourceId] = null; // Usuario no logueado aún
+        $this->users[$conn->resourceId] = null; 
         echo "Nueva conexión: {$conn->resourceId}\n";
     }
 
@@ -35,7 +35,6 @@ class ChatHandler implements MessageComponentInterface {
         if ($type === 'login' && $username) {
             $this->users[$from->resourceId] = $username;
             
-            // Insertar en DB como evento de login
             $stmt = $this->pdo->prepare("INSERT INTO messages (username, message, type, timestamp) VALUES (?, ?, 'login', NOW())");
             $stmt->execute([$username, "{$username} se ha conectado."]);
             
@@ -49,7 +48,6 @@ class ChatHandler implements MessageComponentInterface {
             ];
             $this->broadcast($broadcastData, $from);
             
-            // Enviar historial de últimos 50 mensajes al nuevo usuario
             $this->sendHistory($from);
             
             return;
@@ -86,7 +84,6 @@ class ChatHandler implements MessageComponentInterface {
         $username = $this->users[$resourceId] ?? 'Anónimo';
         unset($this->users[$resourceId]);
 
-        // Insertar en DB como evento de disconnect
         $stmt = $this->pdo->prepare("INSERT INTO messages (username, message, type, timestamp) VALUES (?, ?, 'disconnect', NOW())");
         $stmt->execute([$username, "{$username} se ha desconectado."]);
 
@@ -110,7 +107,6 @@ class ChatHandler implements MessageComponentInterface {
         $conn->close();
     }
 
-    // Método helper para broadcast (envía a todos excepto el origen)
     private function broadcast($data, ConnectionInterface $from = null) {
         foreach ($this->clients as $client) {
             if ($from === null || $from !== $client) {
@@ -119,15 +115,12 @@ class ChatHandler implements MessageComponentInterface {
         }
     }
 
-    // Enviar historial de últimos 50 mensajes al usuario que se conecta
     private function sendHistory(ConnectionInterface $conn) {
         $stmt = $this->pdo->query("SELECT username, message, type, DATE_FORMAT(timestamp, '%H:%i:%s') as timestamp FROM messages ORDER BY timestamp DESC LIMIT 50");
         $history = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
-        // Invertir para mostrar del más viejo al más nuevo
         $history = array_reverse($history);
         
-        // Enviar como array de mensajes (el cliente los procesará)
         $conn->send(json_encode([
             'type' => 'history',
             'messages' => $history
