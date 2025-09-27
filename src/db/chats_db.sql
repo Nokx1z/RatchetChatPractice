@@ -1,5 +1,5 @@
 -- Crear la base de datos
-CREATE DATABASE IF NOT EXISTS chat_app CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE IF NOT EXISTS chat_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- Usar la DB
 USE chat_app;

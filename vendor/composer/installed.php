@@ -3,7 +3,7 @@
         'name' => 'fabri/chat-app',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
-        'reference' => '76e238809c492c78958f109ab61185b71270a490',
+        'reference' => '6fdd2a2cfded69e18d1ca328eb581b73adbd71e5',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -31,7 +31,7 @@
         'fabri/chat-app' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-            'reference' => '76e238809c492c78958f109ab61185b71270a490',
+            'reference' => '6fdd2a2cfded69e18d1ca328eb581b73adbd71e5',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

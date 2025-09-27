@@ -2,7 +2,7 @@ let ws;
         let username;
 
         function connect() {
-            ws = new WebSocket('ws://localhost:8080');
+            ws = new WebSocket('ws://localhost:8081');
             
             ws.onopen = function() {
                 console.log('Conectado al servidor WebSocket');

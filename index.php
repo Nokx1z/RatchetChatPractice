@@ -33,7 +33,7 @@
         </div>
     </div>
 
-    <script src="js/websocket.js"></script>
+
     <script src="./public/assets/js/chat.js"></script>
 </body>
 </html>
