@@ -1,20 +1,21 @@
 {
-    "name": "ratchetchatpractice/ratchetchatpractice",
-    "type": "project",
-    "require": {
-        "cboden/ratchet": "^0.4.4"
-    },
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Root\\App\\": "app/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Nokx1z",
-            "email": "enyelldev@gmail.com"
-        }
-    ],
-    "minimum-stability": "stable"
+  "name": "ratchet-chat/mvc",
+  "description": "Chat en tiempo real MVC con PHP, Ratchet y Composer",
+  "type": "project",
+  "license": "MIT",
+  "require": {
+    "php": "^8.1",
+    "cboden/ratchet": "0.4.4",
+    "vlucas/phpdotenv": "5.6",
+    "nikic/fast-route": "1.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "scripts": {
+    "serve": "php -S localhost:8000 -t public",
+    "ws": "php bin/chat-server.php"
+  }
 }

@@ -1,12 +1,27 @@
 services:
-  ratchet-app:
+  web:
     build: .
-    container_name: ratchet-chat
+    container_name: ratchet-chat-web
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: sh -lc "composer install --no-interaction --prefer-dist && php -S 0.0.0.0:8000 -t public"
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=1
+  ws:
+    build: .
+    container_name: ratchet-chat-ws
+    depends_on:
+      - web
     ports:
       - "8080:8080"
     volumes:
       - .:/app
     working_dir: /app
-    stdin_open: true
-    tty: true
-    command: /bin/bash
+    environment:
+      - WS_BIND=0.0.0.0
+      - WS_PORT=8080
+    command: sh -lc "composer install --no-interaction --prefer-dist && php bin/chat-server.php"
