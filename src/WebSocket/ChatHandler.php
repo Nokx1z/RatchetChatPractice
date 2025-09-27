@@ -2,7 +2,7 @@
 use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
 
-require_once __DIR__ . '../config/database.php';
+require_once dirname(__DIR__, 2) . '/config/database.php';
 
 class ChatHandler implements MessageComponentInterface {
     protected $clients;

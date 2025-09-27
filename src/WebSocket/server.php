@@ -1,6 +1,6 @@
 <?php
-require dirname(__DIR__) . '../../vendor/autoload.php';
-require_once __DIR__ . './ChatHandler.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
+require_once __DIR__ . '/ChatHandler.php';
 
 // Inicia el servidor usando la clase modular
 $server = \Ratchet\Server\IoServer::factory(
