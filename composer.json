@@ -1,0 +1,17 @@
+{
+    "name": "fabri/chat-app",
+    "description": "chat-app",
+    "autoload": {
+        "psr-4": {
+            "Fabri\\ChatApp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Fabrizio"
+        }
+    ],
+    "require": {
+        "cboden/ratchet": "^0.4.4"
+    }
+}
