@@ -1,0 +1,20 @@
+{
+    "name": "deadt/ratchet-chat-practice",
+    "type": "project",
+    "require": {
+        "cboden/ratchet": "^0.4.4"
+    },
+    "license": "mit",
+    "autoload": {
+        "psr-4": {
+            "Deadt\\RatchetChatPractice\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Eltarao",
+            "email": "cristopherjesus2021@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
